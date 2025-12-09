@@ -1,0 +1,57 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+          <h3 class="mb-0"><i class="bi bi-person-plus"></i> New Customer</h3>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="newCustomerFormGroup" (ngSubmit)="handleSaveCustomer()">
+            <!-- Name Field -->
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" formControlName="name" class="form-control" id="name"
+                     placeholder="Enter customer name">
+              <div class="text-danger" *ngIf="newCustomerFormGroup.controls['name'].touched &&
+                                              newCustomerFormGroup.controls['name'].invalid">
+                <small *ngIf="newCustomerFormGroup.controls['name'].errors?.['required']">
+                  Name is required
+                </small>
+                <small *ngIf="newCustomerFormGroup.controls['name'].errors?.['minlength']">
+                  Name must be at least 4 characters
+                </small>
+              </div>
+            </div>
+
+            <!-- Email Field -->
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" formControlName="email" class="form-control" id="email"
+                     placeholder="Enter customer email">
+              <div class="text-danger" *ngIf="newCustomerFormGroup.controls['email'].touched &&
+                                              newCustomerFormGroup.controls['email'].invalid">
+                <small *ngIf="newCustomerFormGroup.controls['email'].errors?.['required']">
+                  Email is required
+                </small>
+                <small *ngIf="newCustomerFormGroup.controls['email'].errors?.['email']">
+                  Please enter a valid email address
+                </small>
+              </div>
+            </div>
+
+            <!-- Buttons -->
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-primary"
+                      [disabled]="newCustomerFormGroup.invalid">
+                <i class="bi bi-save"></i> Save Customer
+              </button>
+              <button type="button" class="btn btn-secondary" routerLink="/customers">
+                <i class="bi bi-x-circle"></i> Cancel
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

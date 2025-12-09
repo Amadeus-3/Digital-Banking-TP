@@ -1,0 +1,41 @@
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-header bg-info text-white">
+      <h3>
+        <i class="bi bi-person-circle"></i>
+        Customer Accounts
+        <span *ngIf="customer"> - {{ customer.name }}</span>
+      </h3>
+    </div>
+    <div class="card-body">
+      <div class="alert alert-info" *ngIf="customer">
+        <h5>Customer Information</h5>
+        <p><strong>ID:</strong> {{ customer.id }}</p>
+        <p><strong>Name:</strong> {{ customer.name }}</p>
+        <p><strong>Email:</strong> {{ customer.email }}</p>
+      </div>
+
+      <div class="alert alert-warning" *ngIf="!customer">
+        <i class="bi bi-exclamation-triangle"></i>
+        Customer information not available. Please navigate from the Customers page.
+      </div>
+
+      <div class="mt-3">
+        <p class="text-muted">
+          <i class="bi bi-info-circle"></i>
+          This page displays accounts for customer ID: <strong>{{ customerId }}</strong>
+        </p>
+        <p class="text-muted">
+          Note: Account listing functionality can be extended by creating a backend endpoint
+          to fetch accounts by customer ID.
+        </p>
+      </div>
+
+      <div class="mt-4">
+        <button class="btn btn-secondary" routerLink="/customers">
+          <i class="bi bi-arrow-left"></i> Back to Customers
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

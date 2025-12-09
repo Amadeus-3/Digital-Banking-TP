@@ -1,0 +1,21 @@
+.card {
+  border: none;
+}
+
+.card-header {
+  border-radius: 0.25rem 0.25rem 0 0;
+}
+
+.form-label {
+  font-weight: 600;
+  color: #555;
+}
+
+.text-danger small {
+  display: block;
+  margin-top: 0.25rem;
+}
+
+button {
+  font-weight: 500;
+}
